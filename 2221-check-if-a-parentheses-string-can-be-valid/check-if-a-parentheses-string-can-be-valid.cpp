@@ -31,8 +31,8 @@ public:
                 return false;
             }
         }
-        if(locked_st.size()>0) return false;
-        if(unlocked_st.size()%2==0) return true;
+        // if(locked_st.size()>0) return false;
+        if(unlocked_st.size()%2==0 && locked_st.size()==0) return true;
         return false;
     }
 };
