@@ -5,15 +5,9 @@ public:
         int n=A.size();
         vector<int> ans(n,0);
         for(int i=0;i<n;i++){
+            st.insert(A[i]);
             st.insert(B[i]);
-            int temp=0;
-            for(int j=0;j<=i;j++){
-
-                if(st.find(A[j])!=st.end()){
-                    temp++;
-                }
-            }
-            ans[i]=temp;
+            ans[i]=(i+1)*2-st.size();
         }
         return ans;
     }
