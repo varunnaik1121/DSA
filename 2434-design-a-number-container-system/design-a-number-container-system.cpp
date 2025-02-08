@@ -1,12 +1,10 @@
 class NumberContainers {
-    map<int,set<int>> mpp;
+    unordered_map<int,set<int>> mpp;
     unordered_map<int,int> prevEle;
 
 
 public:
     NumberContainers() {
-       
-        
     }
     
     void change(int index, int number) {
