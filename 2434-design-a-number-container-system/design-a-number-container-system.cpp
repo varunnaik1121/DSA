@@ -10,15 +10,12 @@ public:
     }
     
     void change(int index, int number) {
-       if(prevEle.find(index)==prevEle.end()){
-        prevEle[index]=number;
-        mpp[number].insert(index);
-       }else{
-        int num=prevEle[index];
-        mpp[num].erase(index);
-        mpp[number].insert(index);
-        prevEle[index]=number;
+       if(prevEle.find(index)!=prevEle.end()){
+            int num=prevEle[index];
+            mpp[num].erase(index);
        }
+        mpp[number].insert(index);
+        prevEle[index]=number;
     }
     
     int find(int number) {
