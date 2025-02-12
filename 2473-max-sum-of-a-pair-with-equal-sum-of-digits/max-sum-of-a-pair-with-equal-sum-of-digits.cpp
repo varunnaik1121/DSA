@@ -10,10 +10,13 @@ private:
     }
 public:
     int maximumSum(vector<int>& nums) {
-        map<int,priority_queue<int>> mpp;
+        map<int,priority_queue<int,vector<int>,greater<int>>> mpp;
         for(int i=0;i<nums.size();i++){
             int sum=sumOfDigits(nums[i]);
             mpp[sum].push(nums[i]);
+            if(mpp[sum].size()>2){
+                mpp[sum].pop();
+            }
         }
         int maxi=-1;
         for(auto it:mpp ){
