@@ -11,6 +11,7 @@ public:
                 swap(nums[i],nums[j]);
                 i++;
                 j++;
+                
             }else{
                 j++;
             }
