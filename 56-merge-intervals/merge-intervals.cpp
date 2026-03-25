@@ -12,7 +12,7 @@ public:
             int second=ans.back()[1];
             if(second>=intervals[i][0]){
                 ans.back()[1]=max(intervals[i][1],second);
-                ans.back()[0]=min(intervals[i][0],first);
+                
             }else{
                 ans.push_back(intervals[i]);
             }
