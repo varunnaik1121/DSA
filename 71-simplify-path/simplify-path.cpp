@@ -58,7 +58,6 @@ public:
             }else if(status=="filename"){
                 st.push(filename);
             }
-            if(i==n-1 && st.size()>0) i++;
            
        }
       
