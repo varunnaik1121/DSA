@@ -1,28 +1,9 @@
 class Solution {
 public:
     string helper(string filename){
-        int i=0;
-        int n=filename.size();
-        string ans="";
-        //(.) (..) (...)
-        bool isAllAreDots=true;
-        for(int i=0;i<n;i++){
-            if(filename[i]!='.'){
-                isAllAreDots=false;
-                break;
-            }else{
-                ans+=filename[i];
-            }
-        }
-        if(isAllAreDots){
-            if(ans.size()==2) return "parent";
-            else if(ans.size()==1) return "current";
-            else return "filename";
-            
-        }else{
-            return "filename";
-        }
-        return "";
+        if(filename==".") return "current";
+        else if(filename=="..") return "parent";
+        else return "filename";
     }
     string simplifyPath(string path) {
        stack<string> st;
