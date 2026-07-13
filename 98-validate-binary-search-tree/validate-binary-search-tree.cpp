@@ -15,19 +15,16 @@ public:
         bool ans=true;
         long long prev=LLONG_MIN;
         
-        inorder(root,ans,prev);
-        return ans;
+        return inorder(root,prev);
+        
     }
-    void inorder(TreeNode* root,bool &ans,long long &prev){
-        if(!root) return;
-        inorder(root->left,ans,prev);
-        if(root->val<=prev){
-            ans=false;
-            return;
+    bool inorder(TreeNode* root,long long &prev){
+        if(!root) return true;
+        if(!inorder(root->left,prev)){
+            return false;
         }
+        if(root->val<=prev) return false;
         prev=root->val;
-        inorder(root->right,ans,prev);
-       
-
+        return inorder(root->right,prev);
     }
 };
