@@ -13,23 +13,21 @@ class Solution {
 public:
     void solve(TreeNode* root){
         if(!root) return;
-        if(!root->left && !root->right) return;
-        TreeNode* temp;
-        if(!root->left){
-            temp=NULL;
-        }else{
-            temp=root->left;
-        }
-        
+        TreeNode* temp=root->left;
         root->left=root->right;
         root->right=temp;
-        solve(root->left);
-        solve(root->right);
+        if(root->left){
+            solve(root->left);
+        }
+        if(root->right){
+            solve(root->right);
+        }
+        return;
     }
     TreeNode* invertTree(TreeNode* root) {
         if(!root) return root;
-        TreeNode* originalRoot=root;
+        TreeNode* temp=root;
         solve(root);
-        return originalRoot;
+        return temp;
     }
 };
