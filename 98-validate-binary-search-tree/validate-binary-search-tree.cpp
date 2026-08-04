@@ -18,9 +18,10 @@ public:
     bool helper(TreeNode* root,long long &mini){
         if(!root) return true;
         bool leftStatus=helper(root->left,mini);
+        if(!leftStatus) return false;
         if(root->val<=mini) return false;
         mini=root->val;
-        int rightStatus=helper(root->right,mini);
-        return leftStatus && rightStatus;
+        return helper(root->right,mini);
+        
     }
 };
