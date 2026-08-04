@@ -12,19 +12,15 @@
 class Solution {
 public:
     bool isValidBST(TreeNode* root) {
-        bool ans=true;
-        long long prev=LLONG_MIN;
-        
-        return inorder(root,prev);
-        
+        long long mini=LLONG_MIN;
+        return helper(root,mini);
     }
-    bool inorder(TreeNode* root,long long &prev){
+    bool helper(TreeNode* root,long long &mini){
         if(!root) return true;
-        if(!inorder(root->left,prev)){
-            return false;
-        }
-        if(root->val<=prev) return false;
-        prev=root->val;
-        return inorder(root->right,prev);
+        bool leftStatus=helper(root->left,mini);
+        if(root->val<=mini) return false;
+        mini=root->val;
+        int rightStatus=helper(root->right,mini);
+        return leftStatus && rightStatus;
     }
 };
